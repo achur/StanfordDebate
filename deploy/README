@@ -1,0 +1,43 @@
+// NOTE: This will hopefully be replaced soon with automatic
+// deployment using django-fabric.
+
+The server needs django with some other packages to run.  The following instructions work for a mac system, and should work generally, but if you want to do a custom install, just take a look through this readme, look at requirements.txt, pip documentation, and figure out what it does.  It shouldn't be too complicated to do a custom install.
+
+Install setuptools (easy_install) and python 2.7 or whatever the latest version is.
+
+Install pip.
+sudo easy_install pip
+
+Install virtualenv (you may already have it, in which case use --upgrade):
+sudo pip install virtualenv
+
+Install virtualenvwrapper (keep track of where it puts virtualenvwrapper.sh)
+sudo pip install virtualenvwrapper
+
+You need to either call this every time or, better yet, add it to your ~/.bash_profile:
+source /usr/local/bin/virtualenvwrapper.sh
+using the path to virtualenvwrapper.sh you kept track of earlier.  Note that you should use the -q flag to make sure it doesn't print out like 6 lines every time you open a console.
+
+If you want, set your environment variable $WORKON_HOME to wherever you want your virtual environments to be (otherwise, it puts it in ~/.virtualenvs)
+export WORKON_HOME=~/envs
+
+Create your virtualenv directory
+mkdir -p $WORKON_HOME
+
+Create a new virtualenv instance that won't conflict with other stuff on your system.
+mkvirtualenv --no-site-packages debate
+
+Now you are in your virtual environment.  Note that the --no-site-packages flag means you don't use the site-packages you have already installed on your system for python, which means you need to re-download them.  Also, you have a python instance that is specific to your environment.  To switch out/between virtual environments, you should probably know the following commands:
+workon env2 #switches you to a virtual environment env2
+lssitepackages #see all the installed packages in this virtualenv
+lsvirtualenv OR workon #see all your virtual environments
+deactivate #switch you out of your virtual environment
+
+Note that the Python that virtualenv sets up for your virtual environments (at least for me) is 32-bit.  This is good for our purposes, since psycopg2  (PostgreSQL) is a 32-bit module, but if you want to run 64-bit virtual environment python, you need to hack on it yourself.
+
+Now we are done with the standard setup, we can batch install using pip:
+
+sudo pip install -r requirements.txt
+
+
+Now that it's installed, it's time to deploy.  You can run from manage.py to deploy.
