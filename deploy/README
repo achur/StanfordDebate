@@ -40,4 +40,10 @@ Now we are done with the standard setup, we can batch install using pip:
 sudo pip install -r requirements.txt
 
 
-Now that it's installed, it's time to deploy.  You can run from manage.py to deploy.
+Now that it's installed, it's time to deploy.  
+
+First, you need to update the GIT_DIR in manage.py (so your database goes somewhere reasonable... and somewhere you have permissions to write).
+
+Also, you need to run "python manage.py syncdb" to setup/create the sqlite db.
+
+You can run from manage.py to deploy.
