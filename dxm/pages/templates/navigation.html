@@ -5,20 +5,20 @@
     </div>
       <div class="nav-menu">
         <ul class="sf-menu">
-           <li><a href="{{CONSTANTS.sitemap.home}}">Home</a></li>
-           <li><a href="{{CONSTANTS.sitemap.join}}">Join</a></li>
+           <li><a href="{{ BASE_URL }}">Home</a></li>
+           <li><a href="{{ BASE_URL }}{% url join %}">Join</a></li>
            <li><a>Team</a>
 	           <ul>
-	               <li><a href="{{CONSTANTS.sitemap.roster}}">Roster</a></li>
-	               <li><a href="{{CONSTANTS.sitemap.faq}}">FAQ</a></li>
-	               <li><a href="{{CONSTANTS.sitemap.resources}}">Member Resources</a></li>
+	               <li><a href="{{ BASE_URL }}{% url roster %}">Roster</a></li>
+	               <li><a href="{{ BASE_URL }}{% url faq %}">FAQ</a></li>
+	               <li><a href="{{ BASE_URL }}{% url resources %}">Member Resources</a></li>
 	           </ul>
 	       </li>
            <li><a>Debate</a>
 	           <ul>
-	               <li><a href="{{CONSTANTS.sitemap.schedule}}">Schedule</a></li>
-	               <li><a href="{{CONSTANTS.sitemap.results}}">Results</a></li>
-	               <li><a href="{{CONSTANTS.sitemap.links}}">Links</a></li>
+	               <li><a href="{{ BASE_URL }}{% url schedule %}">Schedule</a></li>
+	               <li><a href="{{ BASE_URL }}{% url results %}">Results</a></li>
+	               <li><a href="{{ BASE_URL }}{% url links %}">Links</a></li>
 	           </ul>
            </li>
            <li><a href="{{CONSTANTS.sitemap.highschool}}" target="_blank">High School</a></li>

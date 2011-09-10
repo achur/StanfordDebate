@@ -36,8 +36,11 @@ def join(request):
 # Creates a new potential user and saves it
 # to the database.  Designed for AJAX.
 def joincreate(request):
-    PotentialMember.objects.create(name=request.POST["name"], email=request.POST["email"], note=request.POST["note"])
-    return HttpResponse("OK");
+    newname = request.POST["name"] if "name" in request.POST else (request.GET["name"] if "name" in request.GET else "")
+    newemail = request.POST["email"] if "email" in request.POST else (request.GET["email"] if "email" in request.GET else "")
+    newnote = request.POST["note"] if "note" in request.POST else (request.GET["note"] if "note" in request.GET else "")
+    PotentialMember.objects.create(name=newname, email=newemail, note=newnote)
+    return HttpResponse("OK")
 
 
 def tournamentsForDateRange(startmonth, startyear, endmonth, endyear):

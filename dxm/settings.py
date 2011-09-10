@@ -21,15 +21,6 @@ MANAGERS = ADMINS
 CONSTANTS = {
                 'local_js': True,
                 'sitemap': {
-                                'home': '/',
-                                'join': '/join/',
-                                'faq': '/faq/',
-                                'roster': '/roster/',
-                                'resources': '/resources/',
-                                'schedule': '/schedule/',
-                                'results': '/results/',
-                                'links': '/links/',
-                                'aboutsite': '/pages/aboutsite/',
                                 'highschool': 'http://www.snfi.org/'
                             },
                 'cutoffMonth': 8, # say calendar goes Aug 1 - July 31
@@ -80,6 +71,8 @@ STATIC_ROOT = ''
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
+
+BASE_URL = ''#/group/debate/cgi-bin/site/mysite.fcgi'
 
 # URL prefix for admin static files -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.

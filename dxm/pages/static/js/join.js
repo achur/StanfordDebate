@@ -1,4 +1,4 @@
-var ADDURL = "/join/create/"
+var ADDURL = $ADDURL
 var signingUp = false;
 
 function signUpClicked()
@@ -40,7 +40,7 @@ function addPotentialMember(name, email, note, callbackFn)
 {
 	$.post(
 		ADDURL,
-		{"name": name, "email": email, "note": note},
+		{"name": name, "email": email, "note": note, "csrfmiddlewaretoken": $CSRFTOKEN},
 		callbackFn
 	)
 }
