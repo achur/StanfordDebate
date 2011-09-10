@@ -10,13 +10,13 @@
 
 {% block extra_css %}
 	{{ block.super }}
-	<link rel="stylesheet" href="{{ BASE_URL }}{{ STATIC_URL }}css/join.css"/>
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/join.css"/>
 {% endblock %}
 
 {% block extra_js %}
 	{{ block.super }}
 	<script type="text/javascript">$ADDURL = "{{ BASE_URL }}/join/create/"; $CSRFTOKEN = "{{ csrf_token }}"</script>
-    <script type="text/javascript" src="{{ BASE_URL }}{{ STATIC_URL }}js/join.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/join.js"></script>
 {% endblock %}
 
 

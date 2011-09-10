@@ -10,17 +10,17 @@
 
 {% block extra_css %}
 	{{ block.super }}
-	<link rel="stylesheet" href="{{ BASE_URL }}{{ STATIC_URL }}css/basenav.css"/>
-	<link rel="stylesheet" href="{{ BASE_URL }}{{ STATIC_URL }}css/navigation.css"/>
-	<link rel="stylesheet" media="screen" href="{{ BASE_URL }}{{ STATIC_URL }}css/superfish.css" /> 
-	<link rel="stylesheet" media="screen" href="{{ BASE_URL }}{{ STATIC_URL }}css/superfish-navbar.css" /> 
-	<link rel="stylesheet" media="screen" href="{{ BASE_URL }}{{ STATIC_URL }}css/superfish-vertical.css" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/basenav.css"/>
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/navigation.css"/>
+	<link rel="stylesheet" media="screen" href="{{ STATIC_URL }}css/superfish.css" /> 
+	<link rel="stylesheet" media="screen" href="{{ STATIC_URL }}css/superfish-navbar.css" /> 
+	<link rel="stylesheet" media="screen" href="{{ STATIC_URL }}css/superfish-vertical.css" />
 {% endblock %}
 
 {% block extra_js %}
 	{{ block.super }}
-	<script type="text/javascript" src="{{ BASE_URL }}{{ STATIC_URL }}js/hoverIntent.js"></script> 
-	<script type="text/javascript" src="{{ BASE_URL }}{{ STATIC_URL }}js/superfish.js"></script> 
+	<script type="text/javascript" src="{{ STATIC_URL }}js/hoverIntent.js"></script> 
+	<script type="text/javascript" src="{{ STATIC_URL }}js/superfish.js"></script>
 {% endblock %}
 
 {% block title %}
@@ -55,7 +55,7 @@
 	        {% endblock %}
 	        
 			<div id="footer">
-			    &copy {{ CONSTANTS.thisYear }} Stanford Debate Society | <a href="{{ BASE_URL }}{% url pages 'aboutsite' %}">About this site</a>
+			    &copy {{ CONSTANTS.thisYear }} Stanford Debate Society | <a href="{% url pages 'aboutsite' %}">About this site</a>
 			</div>
 	    </div>
 	 </div>

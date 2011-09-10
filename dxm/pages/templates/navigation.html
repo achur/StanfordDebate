@@ -1,24 +1,24 @@
 <div id="nav">
   <div class="nav-bound">
     <div class="nav-logo">
-    	<a href="{{CONSTANTS.sitemap.home}}">Stanford | Debate</a>
+    	<a href="{% url mainpage %}">Stanford | Debate</a>
     </div>
       <div class="nav-menu">
         <ul class="sf-menu">
-           <li><a href="{{ BASE_URL }}">Home</a></li>
-           <li><a href="{{ BASE_URL }}{% url join %}">Join</a></li>
+           <li><a href="{% url mainpage %}">Home</a></li>
+           <li><a href="{% url join %}">Join</a></li>
            <li><a>Team</a>
 	           <ul>
-	               <li><a href="{{ BASE_URL }}{% url roster %}">Roster</a></li>
-	               <li><a href="{{ BASE_URL }}{% url faq %}">FAQ</a></li>
-	               <li><a href="{{ BASE_URL }}{% url resources %}">Member Resources</a></li>
+	               <li><a href="{% url roster %}">Roster</a></li>
+	               <li><a href="{% url faq %}">FAQ</a></li>
+	               <li><a href="{% url resources %}">Member Resources</a></li>
 	           </ul>
 	       </li>
            <li><a>Debate</a>
 	           <ul>
-	               <li><a href="{{ BASE_URL }}{% url schedule %}">Schedule</a></li>
-	               <li><a href="{{ BASE_URL }}{% url results %}">Results</a></li>
-	               <li><a href="{{ BASE_URL }}{% url links %}">Links</a></li>
+	               <li><a href="{% url schedule %}">Schedule</a></li>
+	               <li><a href="{% url results %}">Results</a></li>
+	               <li><a href="{% url links %}">Links</a></li>
 	           </ul>
            </li>
            <li><a href="{{CONSTANTS.sitemap.highschool}}" target="_blank">High School</a></li>
