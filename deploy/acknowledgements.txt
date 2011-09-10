@@ -1,0 +1,6 @@
+Django
+jQuery
+python-markdown
+github-flavored-markdown for python https://gist.github.com/856894
+django-flatblocks https://github.com/zerok/django-flatblocks
+superfish

@@ -1,5 +1,12 @@
 # Django settings for website project.
 
+import datetime
+
+# A private settings file containing
+# DATABASES and SECRET_KEY so they
+# don't end up on github ;)
+import private_settings
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -11,16 +18,26 @@ GIT_DIR = '/Users/Alex/Desktop/StanfordDebate/'
 
 MANAGERS = ADMINS
 
-DATABASES = {
-    # Not a lot here for sqlite 3
-    # Alex: it might make sense to transition this to either
-    # MySQL (supported by Stanford) or PostgreSQL (maybe better)
-    # so it's hosted and pass-protected.
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': (GIT_DIR + 'databases/sds.sqlite3'),
-    }
-}
+CONSTANTS = {
+                'local_js': True,
+                'sitemap': {
+                                'home': '/',
+                                'join': '/join/',
+                                'faq': '/faq/',
+                                'roster': '/roster/',
+                                'resources': '/resources/',
+                                'schedule': '/schedule/',
+                                'results': '/results/',
+                                'links': '/links/',
+                                'aboutsite': '/pages/aboutsite/',
+                                'highschool': 'http://www.snfi.org/'
+                            },
+                'cutoffMonth': 8, # say calendar goes Aug 1 - July 31
+                'thisYear': datetime.date.today().year
+            }
+
+
+DATABASES = private_settings.DATABASES
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -71,9 +88,7 @@ ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+    GIT_DIR + '/dxm/static/',
 )
 
 # List of finder classes that know how to find static files in
@@ -85,7 +100,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'd$%@o0n8g_$h8&@2jr$z3o*bm3-**rab3kj%%q72-@-j!)pcz5'
+SECRET_KEY = private_settings.SECRET_KEY
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -102,12 +117,20 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'website.urls'
+ROOT_URLCONF = 'dxm.urls'
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'pages.pages_context_processor.constants',
+    'django.core.context_processors.static',
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.request',
+)
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+    GIT_DIR + "dxm/pages/templates",
 )
 
 INSTALLED_APPS = (
@@ -118,9 +141,11 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'pages',
+    'flatblocks'
 )
 
 # A sample logging configuration. The only tangible logging

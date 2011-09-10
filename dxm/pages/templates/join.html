@@ -1,0 +1,52 @@
+{% extends "base/basenav.html" %}
+
+{% block title %}
+	Join | Stanford Debate
+{% endblock %}
+
+{% block page_title %}
+	Join
+{% endblock %}
+
+{% block extra_css %}
+	{{ block.super }}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/join.css"/>
+{% endblock %}
+
+{% block extra_js %}
+	{{ block.super }}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/join.js"></script>
+{% endblock %}
+
+
+{% load flatblock_tags %}
+{% flatblock 'join-page' %}
+
+{% block content %}
+
+<div id="joinform">
+	<div class="joininput">
+		<label for="joinname">Name: </label>
+		<input type="text" id="joinname">
+	</div>
+	<div class="joininput">
+		<label for="joinemail">Email: </label>
+		<input type="text" id="joinemail">
+	</div>
+	<div class="joininput">
+		<label for="joinnote">Additional info (optional): </label>
+		<textarea id="joinnote" rows="5" cols="20"></textarea>
+	</div>
+	<div class='graybutton' onclick="signUpClicked()">
+		Sign up
+	</div>
+</div>
+
+<div id="success-message">
+	{% flatblock 'join-success-message' %}
+</div>
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

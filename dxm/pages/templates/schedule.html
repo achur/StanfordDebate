@@ -1,0 +1,39 @@
+{% extends "base/basenav.html" %}
+
+{% block title %}
+	Schedule | Stanford Debate
+{% endblock %}
+
+{% block extra_css %}
+	{{ block.super }}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/schedule.css"/>
+{% endblock %}
+
+{% block page_title %}
+	Tournament Schedule
+{% endblock %}
+
+{% block content %}
+
+	<div class='year-select'>
+		<select id='year-chooser' onchange='window.location="/schedule/?year=" + $("#year-chooser").val();'>
+			{% for x in years %}
+				<option value="{{ x.val }}" {% if x.year == year %}selected="selected"{% endif %}>{{ x.year }}</option>
+			{% endfor %}
+		</select>
+	</div>
+
+	<div class='tournament-list'>
+	{% for t in tournaments %}
+		<div class='tournament'>
+			<span class='tournament-date'>
+				{{ t.formatdate }}: 
+			</span>
+			<a class='tournament-name' {% if t.url %}href='{{ t.url }}{% endif %}'>{{ t.name }}</a>
+		</div>
+	{% endfor %}
+	</div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "base/basenav.html" %}
+
+{% block title %}
+	Roster | Stanford Debate
+{% endblock %}
+
+{% block extra_css %}
+	{{ block.super }}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/roster.css"/>
+{% endblock %}
+
+{% block page_title %}
+	Team Roster
+{% endblock %}
+
+{% load pages_tags %}
+
+{% block content %}
+
+	<div class='officers'>
+		<div class='roster-title'>
+			Elected Officers
+		</div>
+		<div class='eboard'>
+			<div class='roster-mini-title'>
+				Executive Board
+			</div>
+			{% for m in eboard %}
+			<div class='officer'>
+				<span class='officer-title'>{{ m.title }}</span> <span class='officer-name'>{% member_listify m.name 'True' %}</span>
+			</div>
+			{% endfor %}
+		</div>
+		<div class='other-officers'>
+			<div class='roster-mini-title'>
+				Other Elected Officers
+			</div>
+			{% for m in other_officers %}
+			<div class='officer'>
+				<span class='officer-title'>{{ m.title }}</span> <span class='officer-name'>{% member_listify m.name 'True' %}</span>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+	
+	<div class='members'>
+		<div class='roster-title'>
+			Members
+		</div>
+		{% for m in members %}
+			<div class='member'>
+				<span class='member-name'>{{ m.name }}</span>
+				<span class='member-year'>{{ m.year }}</span>
+			</div>
+		{% endfor %}
+	</div>
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

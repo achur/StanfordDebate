@@ -1,0 +1,66 @@
+{% extends "base/base.html" %}
+
+{% comment %}
+	This template provides the base and includes the navigation.  It also sets up a section
+	for content to be overriden by children.
+	
+	Here, we also make the decision to show errors if there are any.  Otherwise, we
+	proceed loading the standard navigation stuff.
+{% endcomment %}
+
+{% block extra_css %}
+	{{ block.super }}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/basenav.css"/>
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/navigation.css"/>
+	<link rel="stylesheet" media="screen" href="{{ STATIC_URL }}css/superfish.css" /> 
+	<link rel="stylesheet" media="screen" href="{{ STATIC_URL }}css/superfish-navbar.css" /> 
+	<link rel="stylesheet" media="screen" href="{{ STATIC_URL }}css/superfish-vertical.css" />
+{% endblock %}
+
+{% block extra_js %}
+	{{ block.super }}
+	<script type="text/javascript" src="{{ STATIC_URL }}js/hoverIntent.js"></script> 
+	<script type="text/javascript" src="{{ STATIC_URL }}js/superfish.js"></script> 
+{% endblock %}
+
+{% block title %}
+	Base navigation
+{% endblock %}
+
+{% block body %}
+
+{% if errors %}
+
+	<ul>
+		{% for error in errors %}
+		<li> {{ error }} </li>
+		{% endfor %}
+	</ul>
+
+{% else %}
+
+	<div>
+		{% include "navigation.html" %}
+	</div>
+	
+	<div id="background"></div>
+	
+	<div id="middle">
+	    <div id="content">
+	    	<div class="page-title">
+	            {% block page_title %}
+	            {% endblock %}
+	    	</div>
+	        {% block content %}
+	        {% endblock %}
+	        
+			<div id="footer">
+			    &copy {{ CONSTANTS.thisYear }} Stanford Debate Society | <a href="{{ CONSTANTS.sitemap.aboutsite }}">About this site</a>
+			</div>
+	    </div>
+	 </div>
+	
+
+{% endif %}
+
+{% endblock %}

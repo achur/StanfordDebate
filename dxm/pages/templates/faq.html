@@ -1,0 +1,33 @@
+{% extends "base/basenav.html" %}
+
+{% block title %}
+	FAQ | Stanford Debate
+{% endblock %}
+
+{% block extra_css %}
+	{{ block.super }}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/faq.css"/>
+{% endblock %}
+
+{% block page_title %}
+	Frequently Asked Questions
+{% endblock %}
+
+{% block content %}
+
+	<div class='faq-list'>
+		{% for faq in faqs %}
+			<div class='faq'>
+				<div class='question'>
+					{{ faq.question }}
+				</div>
+				<div class='answer'>
+					{{ faq.answer }}
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

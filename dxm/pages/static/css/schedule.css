@@ -1,0 +1,25 @@
+.tournament
+{
+	margin-top: 3px;
+	margin-bottom: 5px;
+}
+
+.tournament .tournament-date
+{
+	font-style: italic;
+}
+
+.tournament .tournament-name
+{
+	font-weight: bold;
+}
+
+.tournament-list
+{
+	text-align: center;
+}
+
+.year-select
+{
+	text-align: right;
+}

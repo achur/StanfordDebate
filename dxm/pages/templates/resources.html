@@ -1,0 +1,24 @@
+{% extends "base/basenav.html" %}
+
+{% block title %}
+	Stanford Debate
+{% endblock %}
+
+{% block page_title %}
+	Member Resources
+{% endblock %}
+
+{% block extra_css %}
+	{{ block.super }}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/resources.css"/>
+{% endblock %}
+
+{% block content %}
+
+{% load flatblock_tags %}
+{% flatblock 'member-resources' %}
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

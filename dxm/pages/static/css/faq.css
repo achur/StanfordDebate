@@ -1,0 +1,17 @@
+.faq
+{
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+.faq .question
+{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.faq .answer
+{
+	margin-left: 70px;
+	margin-top: 6px;
+}

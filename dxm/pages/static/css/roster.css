@@ -1,0 +1,61 @@
+.roster-title
+{
+	text-align: center;
+	font-size: 17px;
+	font-weight: bold;
+	color: #444444;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.roster-mini-title
+{
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+	color: #444444;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+.officers
+{
+	display: block;
+	width: 600px;
+	margin: auto;
+}
+
+.officer-title
+{
+	width: 290px;
+	float: left;
+	text-align: right;
+	padding-right: 10px;
+}
+
+.officer-name
+{
+	text-align: left;
+	padding-left: 10px;
+}
+
+.members
+{
+	display: block;
+	margin: auto;
+	margin-top: 35px;
+	width: 300px;
+}
+
+.member-name
+{
+	width: 250px;
+	margin-right:-50px;
+	padding-right:50px;
+	float: left;
+}
+
+.member-year
+{
+	width: 50px;
+}

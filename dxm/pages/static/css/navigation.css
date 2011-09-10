@@ -1,0 +1,29 @@
+#nav {
+    height: 40px;
+    width: 100%;
+    background-color: #bb0000;
+    background-image:url('/static/images/nav-background.png');
+    margin: 0;
+    padding: 0;
+}
+
+#nav .nav-bound {
+    width: 735px;
+    margin: auto;
+    height: 100%;
+}
+
+#nav .nav-bound .nav-logo a {
+    display: inline;
+    float: left;
+    height: 100%;
+    color: #fff;
+    font-size: 30px;
+    font-family: 'Sabon LT W02 Bold', Georgia, serif;
+    width: 300px;
+    text-decoration: none;
+}
+
+.sf-with-ul {
+	cursor: default;
+}

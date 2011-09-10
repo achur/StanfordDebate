@@ -1,0 +1,24 @@
+{% extends "base/basenav.html" %}
+
+{% block title %}
+	Stanford Debate
+{% endblock %}
+
+{% block page_title %}
+	Stanford Debate Society
+{% endblock %}
+
+{% block extra_css %}
+	{{ block.super }}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/mainpage.css"/>
+{% endblock %}
+
+{% block content %}
+
+{% load flatblock_tags %}
+{% flatblock 'main-page' %}
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

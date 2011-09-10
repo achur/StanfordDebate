@@ -1,0 +1,25 @@
+.tournament
+{
+	margin: 20px 20px 20px 20px;
+}
+
+.tournament .tournament-title
+{
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+
+.tournament .tournament-name
+{
+	font-weight: bold;
+}
+
+.tournament .team-rank
+{
+	font-style: italic;
+}
+
+.year-select
+{
+	text-align: right;
+}

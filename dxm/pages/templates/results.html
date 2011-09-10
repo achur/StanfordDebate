@@ -1,0 +1,50 @@
+{% extends "base/basenav.html" %}
+
+{% block title %}
+	Results | Stanford Debate
+{% endblock %}
+
+{% block extra_css %}
+	{{ block.super }}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/results.css"/>
+{% endblock %}
+
+{% block page_title %}
+	Results
+{% endblock %}
+
+{% load pages_tags %}
+
+{% block content %}
+
+	<div class='year-select'>
+		<select id='year-chooser' onchange='window.location="/results/?year=" + $("#year-chooser").val();'>
+			{% for x in years %}
+				<option value="{{ x.val }}" {% if x.year == year %}selected="selected"{% endif %}>{{ x.year }}</option>
+			{% endfor %}
+		</select>
+	</div>
+
+	{% for t in tournaments %}
+		{% if t.results|length > 0 %}
+			<div class='tournament'>
+				<div class='tournament-title'>
+					<span class='tournament-name'> {{ t.tournament.name }} </span>
+					<span class='tournament-date'>
+						({{ t.tournament.formatdate }})
+					</span>
+				</div>
+				<div class='tournament-results'>
+					<ul>
+						{% for result in t.results %}
+							<li><span class='team-name'>{% member_listify result.team.all 'False' %}:</span> <span class='team-rank'>{{ result.rank }}</span></li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		{% endif %}
+	{% endfor %}
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
