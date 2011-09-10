@@ -5,6 +5,7 @@ function signUpClicked()
 {
 	if(signingUp) return;
 	signingUp = true;
+	
 	var name = $("#joinname").val();
 	if(name.length <= 0)
 	{
@@ -25,6 +26,7 @@ function signUpClicked()
 		signingUp = false;
 		return;
 	}
+	$('#spinner').show();
 	var note = $("#joinnote").val();
 	addPotentialMember(name, email, note, memberAdded);
 }
@@ -32,6 +34,7 @@ function signUpClicked()
 function memberAdded()
 {
 	$('#joinform').hide();
+	$('#spinner').hide();
 	$('#success-message').show();
 	signingUp = false;
 }

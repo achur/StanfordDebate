@@ -74,3 +74,13 @@
 	text-size: 16px;
 	display: none;
 }
+
+#spinner {
+	margin: auto;
+	float: right;
+	width: 20px;
+	height: 20px;
+	margin-right: 10px;
+	margin-top: 5px;
+	display: none;
+}

@@ -22,9 +22,10 @@
 
 {% load flatblock_tags %}
 
+{% block content %}
+
 <div id="joinform">
 
-	{% block content %}
 	{% flatblock 'join-page' %}
 
 	<div class="joininput">
@@ -42,6 +43,7 @@
 	<div class='graybutton' onclick="signUpClicked()">
 		Sign up
 	</div>
+	<img id='spinner' src='{{ STATIC_URL }}images/spinner.gif' />
 </div>
 
 <div id="success-message">
