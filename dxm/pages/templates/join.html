@@ -22,10 +22,11 @@
 
 {% load flatblock_tags %}
 
-{% block content %}
-{% flatblock 'join-page' %}
-
 <div id="joinform">
+
+	{% block content %}
+	{% flatblock 'join-page' %}
+
 	<div class="joininput">
 		<label for="joinname">Name: </label>
 		<input type="text" id="joinname">
