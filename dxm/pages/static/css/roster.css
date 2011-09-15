@@ -59,3 +59,8 @@
 {
 	width: 50px;
 }
+
+.member
+{
+	min-height: 10px;
+}

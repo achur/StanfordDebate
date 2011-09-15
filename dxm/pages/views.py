@@ -110,7 +110,14 @@ def roster(request):
     officerlist = officerFormatList(officers)
     dict["eboard"] = officerlist[0]
     dict["other_officers"] = officerlist[1]
-    dict["members"] = Member.objects.filter(active=True).order_by('year', 'name')
+    members = Member.objects.filter(active=True).order_by('year', 'name')
+    spacedmembers = [members[0]]
+    for i in range(1, len(members)):
+        if members[i-1].year != members[i].year:
+            spacedmembers.append( { "year": "", "name": "" })
+        spacedmembers.append(members[i])
+    dict["members"] = spacedmembers
+    print spacedmembers
     return render_to_response('roster.html', dict, context_instance=RequestContext(request))
 
 def faq(request):
