@@ -19,7 +19,7 @@
 		{% for faq in faqs %}
 			<div class='faq'>
 				<div class='question'>
-					{{ faq.question }}
+					{{ faq.richquestion|safe }}
 				</div>
 				<div class='answer'>
 					{{ faq.richanswer|safe }}

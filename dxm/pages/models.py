@@ -80,9 +80,9 @@ class FAQ(models.Model):
     question = models.CharField('question', max_length=1000)
     answer = models.CharField('answer', max_length=1000)
     def richquestion(self):
-        return downmark(question)
+        return downmark(self.question)
     def richanswer(self):
-        return downmark(answer)
+        return downmark(self.answer)
     def __unicode__(self):
         return self.question
 
