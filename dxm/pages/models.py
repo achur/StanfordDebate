@@ -30,6 +30,8 @@ class Member(models.Model):
     active = models.BooleanField('is active')
     def __unicode__(self):
         return self.name + " -- " + str(self.year)
+    class Meta:
+        ordering = ['name',]
 
 # Officers is a singleton model (there is only
 # one set of models at any given point) so
@@ -64,6 +66,8 @@ class Tournament(models.Model):
         return stringify_date_range(self.startdate, self.enddate)
     def __unicode__(self):
         return self.name + " -- " + self.formatdate()
+    class Meta:
+        ordering = ['-startdate',]
     
 class Result(models.Model):
     tournament = models.ForeignKey(Tournament, related_name='results')

@@ -2,11 +2,9 @@ from pages.models import Member, Tournament, Result, Officers, FAQ, PotentialMem
 from django.contrib import admin
 
 class TournamentAdmin(admin.ModelAdmin):
-    ordering = ['startdate',]
     list_display = ('name', 'startdate')
 
 class MemberAdmin(admin.ModelAdmin):
-    ordering = ['name',]
     list_display = ('name', 'year', 'email')
 
 admin.site.register(Member, MemberAdmin)
