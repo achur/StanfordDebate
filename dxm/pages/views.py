@@ -66,7 +66,7 @@ def results(request):
         tournaments = tournamentsForDateRange(CONSTANTS['cutoffMonth'], year - 1, CONSTANTS['cutoffMonth'] - 1, year + 1).reverse()
         dict["tournaments"] = [ { "tournament": t, "results": t.results.all() } for t in tournaments ]
     dict["year"] = (str(year) + " - " + str(year+1))
-    years = [{"year": (str(y) + " - " + str(y+1)), "val": str(y)} for y in getTournamentYearList()]
+    years = [{"year": (str(y) + " - " + str(y+1)), "val": str(y)} for y in getTournamentYearList() if y < datetime.date.today().year]
     years.reverse()
     dict["years"] = years
     return render_to_response('results.html', dict, context_instance=RequestContext(request))
