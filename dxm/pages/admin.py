@@ -9,7 +9,7 @@ class MemberAdmin(admin.ModelAdmin):
     ordering = ['name',]
     list_display = ('name', 'year', 'email')
 
-admin.site.register(Member)
+admin.site.register(Member, MemberAdmin)
 admin.site.register(Tournament, TournamentAdmin)
 admin.site.register(Result)
 admin.site.register(Officers)
