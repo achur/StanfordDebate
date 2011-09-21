@@ -117,7 +117,6 @@ def roster(request):
             spacedmembers.append( { "year": "", "name": "" })
         spacedmembers.append(members[i])
     dict["members"] = spacedmembers
-    print spacedmembers
     return render_to_response('roster.html', dict, context_instance=RequestContext(request))
 
 def faq(request):

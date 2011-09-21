@@ -4,6 +4,8 @@ from lib.gfm import downmark
 
 from templatetags.pages_tags import member_listify
 
+import datetime
+
 months_of_year = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 def stringify_date_range(startdate, enddate):
     sameyear = (startdate.year == enddate.year)
@@ -61,7 +63,7 @@ class Tournament(models.Model):
     def formatdate(self):
         return stringify_date_range(self.startdate, self.enddate)
     def __unicode__(self):
-        return self.name
+        return self.name + " -- " + self.formatdate()
     
 class Result(models.Model):
     tournament = models.ForeignKey(Tournament, related_name='results')

@@ -18,7 +18,7 @@
 {% block content %}
 
 	<div class='year-select'>
-		<select id='year-chooser' onchange='window.location="/results/?year=" + $("#year-chooser").val();'>
+		<select id='year-chooser' onchange='window.location="{% url results %}?year=" + $("#year-chooser").val();'>
 			{% for x in years %}
 				<option value="{{ x.val }}" {% if x.year == year %}selected="selected"{% endif %}>{{ x.year }}</option>
 			{% endfor %}
