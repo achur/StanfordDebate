@@ -2,7 +2,7 @@ from pages.models import Member, Tournament, Result, Officers, FAQ, PotentialMem
 from django.contrib import admin
 
 class TournamentAdmin(admin.ModelAdmin):
-    ordering = ['daysInPast',]
+    ordering = ['startdate',]
     list_display = ('name', 'startdate')
 
 admin.site.register(Member)
