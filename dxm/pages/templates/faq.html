@@ -22,7 +22,7 @@
 					{{ faq.question }}
 				</div>
 				<div class='answer'>
-					{{ faq.answer }}
+					{{ faq.richanswer | safe }}
 				</div>
 			</div>
 		{% endfor %}
