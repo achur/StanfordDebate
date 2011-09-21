@@ -5,6 +5,10 @@ class TournamentAdmin(admin.ModelAdmin):
     ordering = ['startdate',]
     list_display = ('name', 'startdate')
 
+class MemberAdmin(admin.ModelAdmin):
+    ordering = ['name',]
+    list_display = ('name', 'year', 'email')
+
 admin.site.register(Member)
 admin.site.register(Tournament, TournamentAdmin)
 admin.site.register(Result)
