@@ -112,7 +112,7 @@ def roster(request):
     other_officers = officerlist[1]
     additional_positions = AdditionalPosition.objects.filter(year=curYear())
     for position in additional_positions:
-        other_officers.append( { "title": position.title, "name": position.members } )
+        other_officers.append( { "title": position.title, "name": position.members.all() } )
     dict["other_officers"] = other_officers
     members = Member.objects.filter(active=True).order_by('year', 'name')
     spacedmembers = [members[0]]
