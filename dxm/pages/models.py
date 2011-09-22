@@ -63,7 +63,7 @@ class AdditionalPosition(models.Model):
     members = models.ManyToManyField(Member, verbose_name='Officers', related_name='additional_position_members')
     year = models.IntegerField('year elected')
     def __unicode__(self):
-        return "" + str(year) + " " + self.title
+        return "" + str(self.year) + " " + self.title
 
 class Tournament(models.Model):
     name = models.CharField('name of tournament', max_length=100)
