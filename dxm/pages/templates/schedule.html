@@ -29,7 +29,7 @@
 			<span class='tournament-date'>
 				{{ t.formatdate }}: 
 			</span>
-			<a class='tournament-name' {% if t.url %}href='{{ t.url }}{% endif %}'>{{ t.name }}</a>
+			<span class='tournament-name'>{{ t.name }}</span>
 		</div>
 	{% endfor %}
 	</div>
