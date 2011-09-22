@@ -1,3 +1,11 @@
-Stanford Debate Website.
+The open-source project backing the Stanford Debate Website.
+
+An open-source content-management system for a debate team (or
+generally for a college activity) programmed in django.  Content
+is populated from a SQL database (take your pick: SQLite, MySQL,
+or PostgreSQL).
+
+To see a running and configured version, visit
+debate.stanford.edu.
 
 Created 8 June 2011 by Alex Churchill
