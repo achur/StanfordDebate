@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from pages.models import Tournament, Result, PotentialMember, Officers, Member, FAQ
+from pages.models import Tournament, Result, PotentialMember, Officers, Member, FAQ, AdditionalPositions
 from flatblocks.models import FlatBlock
 from settings import CONSTANTS
 import datetime
