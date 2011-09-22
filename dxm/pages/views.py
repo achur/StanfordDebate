@@ -109,7 +109,11 @@ def roster(request):
     officers = Officers.objects.get(year=curYear())
     officerlist = officerFormatList(officers)
     dict["eboard"] = officerlist[0]
-    dict["other_officers"] = officerlist[1]
+    other_officers = officerlist[1]
+    additional_positions = AdditionalPositions.objects.filter(year=curYear())
+    for position in additional_positions:
+        other_officers.append( { "title": position.title, "name": position.members } )
+    dict["other_officers"] = other_officers
     members = Member.objects.filter(active=True).order_by('year', 'name')
     spacedmembers = [members[0]]
     for i in range(1, len(members)):

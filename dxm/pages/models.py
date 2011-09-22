@@ -58,6 +58,13 @@ class Officers(models.Model):
         verbose_name = 'List of officers'
         verbose_name_plural = 'List of officers'
 
+class AdditionalPosition(models.Model):
+    title = models.CharField('Name of Office')
+    members = models.ManyToManyField(Member, verbose_name='Officers', related_name='additional_position_members')
+    year = models.IntegerField('year elected')
+    def __unicode__(self):
+        return "" + str(year) + " " self.title
+
 class Tournament(models.Model):
     name = models.CharField('name of tournament', max_length=100)
     startdate = models.DateField('start date')

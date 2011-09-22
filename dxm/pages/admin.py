@@ -1,4 +1,4 @@
-from pages.models import Member, Tournament, Result, Officers, FAQ, PotentialMember
+from pages.models import Member, Tournament, Result, Officers, FAQ, PotentialMember, AdditionalPosition
 from django.contrib import admin
 
 class TournamentAdmin(admin.ModelAdmin):
@@ -14,5 +14,6 @@ admin.site.register(Member, MemberAdmin)
 admin.site.register(Tournament, TournamentAdmin)
 admin.site.register(Result)
 admin.site.register(Officers)
+admin.site.register(AdditionalPosition)
 admin.site.register(FAQ, FAQAdmin)
 admin.site.register(PotentialMember)
