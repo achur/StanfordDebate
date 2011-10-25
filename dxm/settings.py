@@ -21,7 +21,8 @@ MANAGERS = ADMINS
 CONSTANTS = {
                 'local_js': True,
                 'sitemap': {
-                                'highschool': 'http://www.snfi.org/'
+                                'highschoolcamp': 'http://snfi.org/',
+                                'highschooltournament': 'http://snfi.org/invitational'
                             },
                 'cutoffMonth': 8, # say calendar goes Aug 1 - July 31
                 'thisYear': datetime.date.today().year
