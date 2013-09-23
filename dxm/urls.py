@@ -20,7 +20,7 @@ urlpatterns = patterns('',
     url(r'^faq/$', 'pages.views.faq', name="faq"),
     url(r'^links/$', 'pages.views.links', name="links"),
     url(r'^resources/$', 'pages.views.resources', name="resources"),
-    url(r'^pages/(?P<slug_name>\S+)/$', 'pages.views.pages', name="pages")
+    url(r'^pages/(?P<slug_name>\S+)/$', 'pages.views.pages', name="pages"),
     url(r'^(?P<slug_name>\S+)/$', 'pages.views.pages', name="pages")
 )
 
