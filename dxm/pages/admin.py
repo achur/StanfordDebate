@@ -10,6 +10,9 @@ class MemberAdmin(admin.ModelAdmin):
 class FAQAdmin(admin.ModelAdmin):
     list_display = ('question', 'answer')
 
+class StaffPositionAdmin(admin.ModelAdmin):
+    list_display = ('title',)
+
 admin.site.register(Member, MemberAdmin)
 admin.site.register(Tournament, TournamentAdmin)
 admin.site.register(Result)
@@ -17,4 +20,4 @@ admin.site.register(Officers)
 admin.site.register(AdditionalPosition)
 admin.site.register(FAQ, FAQAdmin)
 admin.site.register(PotentialMember)
-admin.site.register(StaffPosition)
+admin.site.register(StaffPosition, StaffPositionAdmin)
