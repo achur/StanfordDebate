@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from pages.models import Tournament, Result, PotentialMember, Officers, Member, FAQ, AdditionalPosition
+from pages.models import Tournament, Result, PotentialMember, Officers, Member, FAQ, AdditionalPosition, StaffPosition
 from flatblocks.models import FlatBlock
 from settings import CONSTANTS
 import datetime
@@ -104,24 +104,29 @@ def officerFormatList(officers):
                 ]
             ]
 
+def staff_positions():
+    staff = StaffPosition.objects.all().order_by('priority')
+    return [ {"title": p.title, "members": p.members.all()} for p in staff]
+
 def roster(request):
-    dict = {}
+    context = {}
     officers = Officers.objects.get(year=curYear())
     officerlist = officerFormatList(officers)
-    dict["eboard"] = officerlist[0]
+    context["eboard"] = officerlist[0]
     other_officers = officerlist[1]
     additional_positions = AdditionalPosition.objects.filter(year=curYear())
     for position in additional_positions:
         other_officers.append( { "title": position.title, "name": position.members.all() } )
-    dict["other_officers"] = other_officers
+    context["other_officers"] = other_officers
     members = Member.objects.filter(active=True).order_by('year', 'name')
     spacedmembers = [members[0]]
     for i in range(1, len(members)):
         if members[i-1].year != members[i].year:
             spacedmembers.append( { "year": "", "name": "" })
         spacedmembers.append(members[i])
-    dict["members"] = spacedmembers
-    return render_to_response('roster.html', dict, context_instance=RequestContext(request))
+    context["members"] = spacedmembers
+    context["staff_positions"] = staff_positions()
+    return render_to_response('roster.html', context, context_instance=RequestContext(request))
 
 def faq(request):
     dict = {}

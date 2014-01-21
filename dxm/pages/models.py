@@ -33,6 +33,11 @@ class Member(models.Model):
     class Meta:
         ordering = ['name',]
 
+class StaffPosition(models.Model):
+    title = models.CharField('Staff title', max_length=50)
+    members = models.ManyToManyField(Member, verbose_name='Members: this just connects the staff position to profiles')
+    priority = models.IntegerField('Priority: (lower = higher on page)')
+
 # Officers is a singleton model (there is only
 # one set of models at any given point) so
 # we override the save and delete methods

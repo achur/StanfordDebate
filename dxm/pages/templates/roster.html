@@ -42,7 +42,18 @@
 			{% endfor %}
 		</div>
 	</div>
-	
+
+  <div class='staff'>
+    <div class='roster-title'>
+      Staff
+    </div>
+    {% for position in staff_positions %}
+    <div class='officer'>
+      <span class='officer-title'>{{ position.title }}</span> <span class='officer-name'>{% member_listify position.members 'True' %}</span>
+    </div>
+    {% endfor %}
+  </div>
+
 	<div class='members'>
 		<div class='roster-title'>
 			Members

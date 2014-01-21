@@ -25,6 +25,13 @@
 	margin: auto;
 }
 
+.staff
+{
+  display: block;
+  width: 600px;
+  margin: auto;
+}
+
 .officer-title
 {
 	width: 290px;
